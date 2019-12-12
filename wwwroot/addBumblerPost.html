@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add a New Bumbler Post</title>
+
+    <script>
+        const BlunderApi = {
+            // Create a new Bumbler post
+            createBumbler: function (bumblerInstance) {
+                console.log(`Creating a Bumbler post`);
+            }
+        }
+
+        function addBumblerPost() {
+            let newPost = {
+                postTimeStamp: document.getElementById("p_date").value,
+                postUserName: document.getElementById("p_user").value,
+                postImageUrl: document.getElementById("p_image").value,
+                postTitle: document.getElementById("p_title").value,
+                postText: document.getElementById("p_body").value,
+            }
+
+            fetch("api/BumblerItems", {
+                method: "POST",
+                redirect: 'follow',
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newPost)
+            })
+            .then(setTimeout(function(){(window.location.href="./index.html") ; }, 3000))
+            .then(console.log("added"))
+                // .then(window.location.href="./index.html")
+                // .then(window.location.assign("./index.html"))
+        }
+
+    </script>
+</head>
+
+<body>
+        <header>
+                <button onclick="window.location.href = '/'">Home</button>
+       
+    </header>
+    <form class="itemForm" action="javascript:void(0);" onsubmit="addBumblerPost()">
+        <label for="p_date">Post Date</label><input type="date" id="p_date">
+        <label for="p_user">User</label><input type="text" id="p_user">
+        <label for="p_image">Image URL</label><input type="text" id="p_image">
+        <label for="p_title">Title</label><input type="text" id="p_title">
+        <label for="p_body">Post</label><input type="text" id="p_body">
+        <button id="addButton">Add Post</button>
+    </form>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+</body>
+
+</html>

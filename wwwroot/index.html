@@ -1,12 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
+    <!-- TODO: Implement as api -->
+    <!-- <script src="./js/api.js" type="module"></script> -->
+    <script>
+        const BlunderApi = {
+            // // Create a new Bumbler post
+            // createBumbler: function (bumblerInstance) {
+            //     console.log(`Creating a Bumbler post`);
+            // },
+
+
+            // // Retrieve an existing Bumbler post
+            // readBumbler: function (bumblerInstanceId) {
+            //     console.log(`Reading Bumbler post ${bumblerInstanceId}`);
+            // }
+            // ,
+            // Get all the current Bumbler posts
+            readBumblers: function () {
+                console.log(`Reading all Bumbler posts`);
+
+                fetch("/api/BumblerItems", {
+                    mode: 'no-cors' // 'cors' by default
+                })
+                    .then(data => data.json())
+                    .then(resp => resp.reverse().map((eachItem) => {
+                        let divEl = document.createElement("div");
+                        divEl.setAttribute("class", "eachItem")
+                        divEl.innerHTML = `
+    
+
+
+    
+                        <div class="header">
+            
+                            <h3>${eachItem.postTimestamp} ${eachItem.postUserName}</h3>
+                            <img src = "${eachItem.postImageUrl}" width="20%">
+                            <h2>${eachItem.postTitle}</h2>
+                            <p>${eachItem.postText}</p>
+                            <button>Like Bumble</button>
+                            <button>Edit Bumble</button>
+                            <button onclick="BlunderApi.deleteBumbler(${eachItem.id})">Delete Bumble</button>
+                            <button onclick="window.location.href = '/'">Home</button>
+                        </div>
+                        `;
+                        document.getElementById("itemList").append(divEl);
+                    }))
+
+            }
+            ,
+            // // Update an existing Bumbler post
+            // updateBumbler: function (bumblerInstance) {
+            //     console.log(`Updating a Bumbler post`);
+            // }
+            // ,
+            // Remove an existing Bumbler post
+            deleteBumbler: function (bumblerInstanceId, bumblerTitle) {
+                console.log(`Deleting Bumbler post ${bumblerInstanceId}`);
+                if (window.confirm(`Are you sure you want to delete post ${bumblerInstanceId}?`)) {
+                    fetch(`api/BumblerItems/${bumblerInstanceId}`, { method: "DELETE" })
+                        .then(console.log("deleted"))
+
+                        .then(setTimeout(function () { (window.location.href = "./index.html"); }, 2000))
+                }
+                else {
+                    return;
+                }
+            }
+        }
+    </script>
 </head>
+
 <body>
-    <h1>Howdy</h1>
+    <header>
+        <button onclick="window.location.href = 'addBumblerPost.html'">Post a Bumble</button>
+    </header>
+    <!-- <header>    
+        <button onclick="window.location.href = '/'">Home</button>
+        <button onclick="window.location.href = 'addBumblerPost.html'">Add New Item</button>
+    </header> -->
+    <!-- <img src="https://3wcircus.com/clown.png"/> -->
+
+    <!-- <button onclick="BlunderApi.createBumbler(null)">Create Bumblers</button>
+    <button onclick="BlunderApi.readBumbler(1)">Read a Bumbler</button>
+    <button onclick="BlunderApi.readBumblers()">Read Bumblers</button>
+    <button onclick="BlunderApi.updateBumbler(null)">Update a Bumbler</button>
+    <button onclick="BlunderApi.deleteBumbler(1)">Delete a Bumbler</button> -->
+    <div id="itemList" class="container"></div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script>BlunderApi.readBumblers()</script>
 </body>
+
 </html>

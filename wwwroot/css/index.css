@@ -1,0 +1,69 @@
+body{
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+a:visited, a{
+    color: gold;
+}
+
+button:hover {
+    background-color: darkred;
+    color: whitesmoke;
+}
+
+#searchBtn{
+    background-color: green;
+    color: white;
+}
+
+.itemForm{
+    background-color:gb(210, 206, 212);
+    margin: 0 40%;
+    padding: 10px 0;
+    border: 2px solid lightsalmon;
+    border-radius: 25px;
+}
+
+label{
+    display: block;
+    padding-top: 15px;    
+}
+
+/* #addButton {
+    display: block;
+    margin: 10px auto;
+} */
+
+#itemList {
+    display: grid;
+    grid-template-columns: 1 1fr;
+}
+
+.eachItem {
+    padding: 20px;
+    margin: 10px 70px;
+    background-color: rgb(210, 206, 212);
+    border: 3px solid darkred;
+    border-radius: 40px;
+    color: black;
+    border-block-width: 90%;
+}
+
+img {
+    width: 400px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+header {
+      background-color:darkgray;
+      height: 100px;
+      vertical-align: middle;
+      display: flex;
+  }
