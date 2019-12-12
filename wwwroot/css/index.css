@@ -48,7 +48,7 @@ label{
     border: 3px solid darkred;
     border-radius: 40px;
     color: black;
-    border-block-width: 90%;
+    border-block-width: 50%;
 }
 
 img {

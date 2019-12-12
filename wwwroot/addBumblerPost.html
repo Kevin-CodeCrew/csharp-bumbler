@@ -47,13 +47,36 @@
                 <button onclick="window.location.href = '/'">Home</button>
        
     </header>
+    
     <form class="itemForm" action="javascript:void(0);" onsubmit="addBumblerPost()">
-        <label for="p_date">Post Date</label><input type="date" id="p_date">
+            <div class="form-group">
+                    <label for="p_date">Post Date</label>
+                    <input type="date" class="form-control" id="p_date">
+                    
+            </div>
+            <div class="form-group">
+                    <label for="p_user">Poster Name</label>
+                    <input type="text" class="form-control" id="p_user">
+                </div>
+                <div class="form-group">
+                        <label for="p_image">Image</label>
+                        <input type="text" class="form-control" id="p_image">
+                    </div>
+                    <div class="form-group">
+                            <label for="p_title">Post Title</label>
+                            <input type="text" class="form-control" id="p_title">
+                        </div>
+                        <div class="form-group">
+                                <label for="p_body">Post Body</label>
+                                <input type="text" class="form-control" id="p_body">
+                            </div>
+
+        <!-- <label for="p_date">Post Date</label><input type="date" id="p_date">
         <label for="p_user">User</label><input type="text" id="p_user">
         <label for="p_image">Image URL</label><input type="text" id="p_image">
         <label for="p_title">Title</label><input type="text" id="p_title">
-        <label for="p_body">Post</label><input type="text" id="p_body">
-        <button id="addButton">Add Post</button>
+        <label for="p_body">Post</label><input type="text" id="p_body"> -->
+        <button class="btn btn-primary"id="addButton">Add Post</button>
     </form>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">

@@ -36,19 +36,18 @@
                         divEl.innerHTML = `
     
 
-
-    
-                        <div class="header">
-            
-                            <h3>${eachItem.postTimestamp} ${eachItem.postUserName}</h3>
-                            <img src = "${eachItem.postImageUrl}" width="20%">
-                            <h2>${eachItem.postTitle}</h2>
-                            <p>${eachItem.postText}</p>
-                            <button>Like Bumble</button>
-                            <button>Edit Bumble</button>
-                            <button onclick="BlunderApi.deleteBumbler(${eachItem.id})">Delete Bumble</button>
-                            <button onclick="window.location.href = '/'">Home</button>
+                        <div class="card bg-light" style="max-width: 100%;">
+                        <img src="${eachItem.postImageUrl}" class="card-img-top" alt="No Image">
+                        <div class="card-body">
+                            <h5 class="card-title">${eachItem.postTitle}</h5>
+                            <p class="card-text">${eachItem.postText}</p>
+                            <button class="btn btn-secondary btn-sm">Like Bumble</button>
+                            <button class="btn btn-secondary btn-sm">Edit Bumble</button>
+                            <button class="btn btn-secondary btn-sm" onclick="BlunderApi.deleteBumbler(${eachItem.id})">Delete Bumble</button>
+                            <button class="btn btn-secondary btn-sm" onclick="window.location.href = '/'">Home</button>
                         </div>
+                        </div>
+
                         `;
                         document.getElementById("itemList").append(divEl);
                     }))
